@@ -1,5 +1,7 @@
 <% meta() %>
 <% const repo = "https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent"; %>
+<% const docs = repo + "/docs"; %>
+<% const examples = repo + "/examples"; %>
 
 <%= render("./_partials/header.html", { title, description, url }) %>
 
@@ -18,6 +20,10 @@
         <a href="https://www.npmjs.com/package/@mariozechner/pi-coding-agent">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24v-24h-24zm19.2 19.2h-2.4v-9.6h-4.8v9.6h-7.2v-14.4h14.4v14.4z"/></svg>
             npm
+        </a>
+        <a href="https://discord.com/invite/nKXTsAcmbT">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+            Discord
         </a>
     </div>
 </div>
@@ -43,44 +49,161 @@
     });
 </script>
 
-<!-- Features -->
+<!-- Pitch -->
 <div class="section">
-    <div class="section-label">Features</div>
-    <h2 class="section-title">Minimal. Opinionated. Extensible.</h2>
-    <p class="section-intro">Lean core keeps your context clean. Use only what you need.</p>
+    <div class="section-label">About</div>
+    <h2 class="section-title">Why pi?</h2>
+    <p>
+        Pi is a minimal terminal coding harness. Adapt pi to your workflows, not the other way around. Extend it with TypeScript <a href="<%=repo%>#extensions">extensions</a>, <a href="<%=repo%>#skills">skills</a>, <a href="<%=repo%>#prompt-templates">prompt templates</a>, and <a href="<%=repo%>#themes">themes</a>. Bundle them as <a href="<%=repo%>#pi-packages">pi packages</a> and share via npm or git.
+    </p>
     
-    <div class="feature-columns">
-        <div class="feature-col">
-            <h3>Core</h3>
-            <ul>
-                <li><a href="<%=repo%>#tools">4 tools</a><span>read, write, edit, bash</span></li>
-                <li><a href="<%=repo%>#api-keys">Multi-provider</a><span>Anthropic, OpenAI, Google, Mistral, Groq, Cerebras, xAI, OpenRouter, ZAI, MiniMax, Amazon Bedrock, Ollama, plus OAuth for Copilot, Gemini CLI, Antigravity, Claude, Codex</span></li>
-                <li><a href="<%=repo%>#slash-commands">/model</a><span>switch models mid-conversation</span></li>
-                <li><a href="<%=repo%>#session-management">Sessions</a><span>tree view, branching, resume any point</span></li>
-                <li><a href="<%=repo%>#context-compaction">Compaction</a><span>auto-summarize long conversations</span></li>
-                <li><a href="<%=repo%>#bash-mode">Bash mode</a><span>prefix with <code>!</code> to run commands</span></li>
-                <li><a href="<%=repo%>#image-support">Images</a><span>paste or drag into context</span></li>
-                <li><a href="<%=repo%>#keyboard-shortcuts">Model cycling</a><span>Ctrl+P/Shift+Ctrl+P, <code>--models</code> patterns</span></li>
-                <li><a href="<%=repo%>#editor-features">Message queuing</a><span>steering vs follow-up messages</span></li>
-            </ul>
-        </div>
-        <div class="feature-col">
-            <h3>Opt-in</h3>
-            <ul>
-                <li><a href="<%=repo%>#project-context-files">AGENTS.md</a><span>project instructions</span></li>
-                <li><a href="<%=repo%>#prompt-templates">Prompt templates</a><span>reusable /commands</span></li>
-                <li><a href="<%=repo%>#skills">Skills</a><span>on-demand instruction files</span></li>
-                <li><a href="<%=repo%>#extensions">Extensions</a><span>tools, commands, hooks, custom UI, games</span></li>
-                <li><a href="<%=repo%>#themes">Themes</a><span>dark, light, or custom with hot reload</span></li>
-                <li><a href="<%=repo%>/docs/sdk.md">SDK</a><span>embed pi in your apps with full control</span></li>
-                <li><a href="<%=repo%>/docs/rpc.md">RPC mode</a><span>JSON protocol for other languages</span></li>
-                <li><a href="<%=repo%>#html-export">HTML export</a><span>shareable session snapshots</span></li>
-                <li><a href="<%=repo%>#slash-commands">/share</a><span>upload session as secret GitHub gist</span></li>
-            </ul>
-        </div>
+    <p>
+        Pi ships with powerful defaults but skips features like sub-agents and plan mode. Ask pi to build what you want, or install a package that does it your way.
+    </p>
+    
+    <p>
+        Four modes: interactive, print/JSON, <a href="<%=repo%>#programmatic-usage">RPC, and SDK</a>. See <a href="https://github.com/clawdbot/clawdbot">clawdbot</a> for a real-world integration.
+    </p>
+    
+    <p class="docs-button">
+        <a href="<%=repo%>#readme">Read the docs</a>
+    </p>
+</div>
+
+<!-- Providers -->
+<div class="section">
+    <div class="section-label">Providers & Models</div>
+    <h2 class="section-title">15+ providers, hundreds of models</h2>
+    
+    <p>
+        Anthropic, OpenAI, Google, Azure, Bedrock, Mistral, Groq, Cerebras, xAI, OpenRouter, Ollama, and more. Authenticate via API keys or OAuth.
+    </p>
+    
+    <p>
+        Switch models mid-session with <code>/model</code> or <code>Ctrl+L</code>. Cycle through your favorites with <code>Ctrl+P</code>.
+    </p>
+    
+    <p>
+        Add custom providers and models via <a href="<%=docs%>/models.md">models.json</a> or <a href="<%=docs%>/custom-provider.md">extensions</a>.
+    </p>
+</div>
+
+<!-- Sessions -->
+<div class="section">
+    <div class="section-label">Sessions</div>
+    <h2 class="section-title">Tree-structured, shareable history</h2>
+    
+    <p>
+        Sessions are stored as trees. Use <code>/tree</code> to navigate to any previous point and continue from there. All branches live in a single file. Filter by message type, label entries as bookmarks.
+    </p>
+    
+    <p>
+        Export to HTML with <code>/export</code> or share as a GitHub gist with <code>/share</code>.
+    </p>
+</div>
+
+<!-- Context -->
+<div class="section">
+    <div class="section-label">Context</div>
+    <h2 class="section-title">Context engineering</h2>
+    
+    <p>
+        Pi's <a href="https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/src/core/system-prompt.ts">minimal system prompt</a> and extensibility let you do actual context engineering. Control what goes into the context window and how it's managed.
+    </p>
+    
+    <p>
+        <strong>AGENTS.md:</strong> Project instructions loaded at startup from <code>~/.pi/agent/</code>, parent directories, and the current directory.
+    </p>
+    
+    <p>
+        <strong>SYSTEM.md:</strong> Replace or append to the default system prompt per-project.
+    </p>
+    
+    <p>
+        <strong>Compaction:</strong> Auto-summarizes older messages when approaching the context limit. Fully customizable via <a href="<%=examples%>/extensions/custom-compaction.ts">extensions</a>: implement topic-based compaction, code-aware summaries, or use different summarization models.
+    </p>
+    
+    <p>
+        <strong>Skills:</strong> Capability packages with instructions and tools, loaded on-demand. Progressive disclosure without busting the prompt cache. See <a href="<%=repo%>#skills">skills</a>.
+    </p>
+    
+    <p>
+        <strong>Prompt templates:</strong> Reusable prompts as Markdown files. Type <code>/name</code> to expand. See <a href="<%=repo%>#prompt-templates">prompt templates</a>.
+    </p>
+    
+    <p>
+        <strong>Dynamic context:</strong> <a href="<%=repo%>#extensions">Extensions</a> can inject messages before each turn, filter the message history, implement RAG, or build long-term memory.
+    </p>
+</div>
+
+<!-- Message Queue -->
+<div class="section">
+    <div class="section-label">Queuing</div>
+    <h2 class="section-title">Steer or follow up</h2>
+    
+    <p>
+        Submit messages while the agent works. <strong>Enter</strong> sends a steering message (delivered after current tool, interrupts remaining tools). <strong>Alt+Enter</strong> sends a follow-up (waits until the agent finishes).
+    </p>
+</div>
+
+<!-- Extensions -->
+<div class="section">
+    <div class="section-label">Extensions</div>
+    <h2 class="section-title">Primitives, not features</h2>
+    
+    <p>
+        Features that other agents bake in, you can build yourself. Extensions are TypeScript modules with access to tools, commands, keyboard shortcuts, events, and the full TUI.
+    </p>
+    
+    <p>
+        <a href="<%=examples%>/extensions/subagent/">Sub-agents</a>, <a href="<%=examples%>/extensions/plan-mode/">plan mode</a>, <a href="<%=examples%>/extensions/permission-gate.ts">permission gates</a>, <a href="<%=examples%>/extensions/protected-paths.ts">path protection</a>, <a href="<%=examples%>/extensions/ssh.ts">SSH execution</a>, <a href="<%=examples%>/extensions/sandbox/">sandboxing</a>, MCP integration, custom editors, status bars, overlays. <a href="<%=examples%>/extensions/doom-overlay/">Yes, Doom runs.</a>
+    </p>
+    
+    <img src="/doom-extension.png" alt="Doom running in pi" class="doom-screenshot">
+    
+    <p>
+        Don't want to build it? Ask pi to build it for you. Or install a <a href="<%=repo%>#pi-packages">package</a> that does it your way. See the <a href="<%=examples%>/extensions/">50+ examples</a>.
+    </p>
+</div>
+
+<!-- Pi Packages -->
+<div class="section">
+    <div class="section-label">Packages</div>
+    <h2 class="section-title">Install and share</h2>
+    
+    <div class="install-box" style="margin-bottom: 1rem;">
+        <code><span class="prefix">$</span> pi install npm:@foo/pi-tools</code>
     </div>
     
-    <p class="docs-link">The rest is in the <a href="<%=repo%>#readme">docs</a>.</p>
+    <p>
+        Bundle extensions, skills, prompts, and themes as packages. Install from npm or git. Use <code>pi config</code> to enable/disable resources.
+    </p>
+    
+    <p>
+        Find packages on <a href="https://www.npmjs.com/search?q=keywords%3Api-package">npmjs.com</a> or share yours with the <code>pi-package</code> keyword.
+    </p>
+</div>
+
+<!-- Integration -->
+<div class="section">
+    <div class="section-label">Integration</div>
+    <h2 class="section-title">Four modes</h2>
+    
+    <p>
+        <strong>Interactive:</strong> The full TUI experience.
+    </p>
+    
+    <p>
+        <strong>Print/JSON:</strong> <code>pi -p "query"</code> for scripts, <code>--mode json</code> for event streams.
+    </p>
+    
+    <p>
+        <strong>RPC:</strong> JSON protocol over stdin/stdout for non-Node integrations. See <a href="<%=docs%>/rpc.md">docs/rpc.md</a>.
+    </p>
+    
+    <p>
+        <strong>SDK:</strong> Embed pi in your apps. See <a href="https://github.com/clawdbot/clawdbot">clawdbot</a> for a real-world example.
+    </p>
 </div>
 
 <!-- Philosophy -->
@@ -89,34 +212,34 @@
     <h2 class="section-title">What we didn't build</h2>
     
     <p>
-        pi is opinionated about what it won't do. These are intentional design decisions to minimize context bloat and avoid anti-patterns.
+        Pi is aggressively extensible so it doesn't have to dictate your workflow. Features that other tools bake in can be built with <a href="<%=repo%>#extensions">extensions</a>, <a href="<%=repo%>#skills">skills</a>, or installed from third-party <a href="<%=repo%>#pi-packages">pi packages</a>. This keeps the core minimal while letting you shape pi to fit how you work.
     </p>
     
     <p>
-        <a href="<%=repo%>#no-mcp">No MCP.</a> Build CLI tools with READMEs (see <a href="<%=repo%>#skills">Skills</a>). The agent reads them on demand. <a href="https://mariozechner.at/posts/2025-11-02-what-if-you-dont-need-mcp/">Would you like to know more?</a> If you must, use <a href="https://github.com/steipete/mcporter">mcporter</a>.
+        <strong>No MCP.</strong> Build CLI tools with READMEs (see <a href="<%=repo%>#skills">Skills</a>), or build an extension that adds MCP support. <a href="https://mariozechner.at/posts/2025-11-02-what-if-you-dont-need-mcp/">Why?</a>
     </p>
     
     <p>
-        <a href="<%=repo%>#no-sub-agents">No sub-agents.</a> Spawn pi instances via tmux, or <a href="<%=repo%>/examples/extensions/subagent/">build your own sub-agent extension</a>. Observability and steerability for you and the agent.
+        <strong>No sub-agents.</strong> There's many ways to do this. Spawn pi instances via tmux, or build your own with <a href="<%=repo%>#extensions">extensions</a>, or install a package that does it your way.
     </p>
     
     <p>
-        <a href="<%=repo%>#no-permission-system-yolo-mode">No permission popups.</a> Security theater. Run in a container or build your own with <a href="<%=repo%>#extensions">Extensions</a>.
+        <strong>No permission popups.</strong> Run in a container, or build your own confirmation flow with <a href="<%=repo%>#extensions">extensions</a> inline with your environment and security requirements.
     </p>
     
     <p>
-        <a href="<%=repo%>#no-planning-mode">No plan mode.</a> Gather context in one session, write plans to file, start fresh for implementation.
+        <strong>No plan mode.</strong> Write plans to files, or build it with <a href="<%=repo%>#extensions">extensions</a>, or install a package.
     </p>
     
     <p>
-        <a href="<%=repo%>#no-built-in-to-dos">No built-in to-dos.</a> They confuse models. Use a TODO.md file, or <a href="https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/examples/extensions/todo.ts">build your own</a> with <a href="<%=repo%>#extensions">extensions</a>.
+        <strong>No built-in to-dos.</strong> Use a TODO.md file, or build your own with <a href="<%=repo%>#extensions">extensions</a>.
     </p>
     
     <p>
-        <a href="<%=repo%>#no-background-bash">No background bash.</a> Use tmux. Full observability, direct interaction.
+        <strong>No background bash.</strong> Use tmux. Full observability, direct interaction.
     </p>
     
-    <p>
+    <p class="docs-link">
         Read the <a href="https://mariozechner.at/posts/2025-11-30-pi-coding-agent/">blog post</a> for the full rationale.
     </p>
 </div>
@@ -127,11 +250,15 @@
     <h2 class="section-title">Get involved</h2>
     
     <p>
-        <strong>Bug reports and feature requests:</strong> Please use <a href="https://github.com/badlogic/pi-mono/issues">GitHub Issues</a>. This is the only channel actively monitored by maintainers.
+        <strong>Issues:</strong> <a href="https://github.com/badlogic/pi-mono/issues">GitHub</a> for bugs and features.
     </p>
     
     <p>
-        <strong>Discord:</strong> There's an <a href="https://discord.com/invite/nKXTsAcmbT">unofficial community Discord</a> for general discussion. Note that maintainers do not actively monitor this channel.
+        <strong>Discord:</strong> <a href="https://discord.com/invite/nKXTsAcmbT">Community server</a> for discussion and sharing.
+    </p>
+    
+    <p>
+        <strong>Docs:</strong> <a href="<%=repo%>#readme">README</a> and <a href="<%=docs%>">docs/</a> for everything else.
     </p>
 </div>
 
