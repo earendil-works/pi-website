@@ -173,12 +173,19 @@
     <div class="section-label">Packages</div>
     <h2 class="section-title">Install and share</h2>
     
-    <div class="install-box" style="margin-bottom: 1rem;">
-        <code><span class="prefix">$</span> pi install npm:@foo/pi-tools</code>
-    </div>
+    <p>
+        Bundle extensions, skills, prompts, and themes as packages. Install from npm or git:
+    </p>
+    
+    <div class="install-box"><code><span class="prefix">$</span> pi install npm:@foo/pi-tools</code></div>
+    <div class="install-box"><code><span class="prefix">$</span> pi install git:github.com/badlogic/pi-doom</code></div>
     
     <p>
-        Bundle extensions, skills, prompts, and themes as packages. Install from npm or git. Use <code>pi config</code> to enable/disable resources.
+        Pin versions with <code>@1.2.3</code> or <code>@tag</code>. Update all with <code>pi update</code>, list with <code>pi list</code>, configure with <code>pi config</code>.
+    </p>
+    
+    <p>
+        Test without installing using <code>pi -e git:github.com/user/repo</code>.
     </p>
     
     <p>
