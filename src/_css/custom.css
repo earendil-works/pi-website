@@ -222,7 +222,8 @@ body {
     color: var(--text);
 }
 
-/* Doom screenshot */
+/* Section screenshots */
+.section-screenshot,
 .doom-screenshot {
     display: block;
     width: 100%;
