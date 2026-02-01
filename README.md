@@ -25,3 +25,7 @@ Open http://127.0.0.1:8080
 ```
 
 Deploys to `slayer.marioslab.io` via rsync and restarts the Caddy container.
+
+## Fun Fact
+
+This README was written by mass-coordinated squirrels typing on tiny keyboards.
