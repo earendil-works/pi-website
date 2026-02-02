@@ -216,7 +216,16 @@
         if (!pi || !pi.video) return null;
         try {
             var pathname = new URL(pi.video).pathname.toLowerCase();
-            if (pathname.endsWith('.mp4') || pathname.endsWith('.webp')) return pi.video;
+            if (pathname.endsWith('.mp4')) return pi.video;
+        } catch (e) {}
+        return null;
+    }
+
+    function imageFromManifest(pi) {
+        if (!pi || !pi.image) return null;
+        try {
+            var pathname = new URL(pi.image).pathname.toLowerCase();
+            if (pathname.endsWith('.webp') || pathname.endsWith('.png') || pathname.endsWith('.jpg') || pathname.endsWith('.jpeg') || pathname.endsWith('.gif')) return pi.image;
         } catch (e) {}
         return null;
     }
@@ -412,18 +421,14 @@
     // --- Media injection (Phase 2) ---
 
     function injectMedia(card, pkg) {
-        if (!pkg.video) return;
         var inner = card.querySelector('.pkg-media-inner');
         var wrap = card.querySelector('.pkg-media-wrap');
         if (!inner || wrap.classList.contains('loaded')) return;
 
-        var pathname = '';
-        try { pathname = new URL(pkg.video).pathname.toLowerCase(); } catch (e) { return; }
-
-        if (pathname.endsWith('.mp4')) {
+        if (pkg.video) {
             injectVideo(inner, wrap, pkg.video, card);
-        } else if (pathname.endsWith('.webp')) {
-            injectWebp(inner, wrap, pkg.video);
+        } else if (pkg.image) {
+            injectImage(inner, wrap, pkg.image);
         }
     }
 
@@ -474,11 +479,11 @@
         });
     }
 
-    function injectWebp(inner, wrap, url) {
+    function injectImage(inner, wrap, url) {
         var img = document.createElement('img');
         img.className = 'pkg-media';
         img.loading = 'lazy';
-        img.alt = 'demo';
+        img.alt = 'preview';
         img.addEventListener('error', function () {
             inner.innerHTML = '<div class="pkg-media-fallback">media unavailable</div>';
         }, { once: true });
@@ -940,7 +945,7 @@
                 var hasMatch = (pkg.types || []).some(function (t) { return typeFilters.has(t); });
                 if (!hasMatch) show = false;
             }
-            if (show && demoOnly && !pkg.video) show = false;
+            if (show && demoOnly && !pkg.video && !pkg.image) show = false;
 
             if (show) {
                 card.classList.remove('pkg-hidden');
@@ -1024,7 +1029,8 @@
                 version: p.version,
                 downloads: (obj.downloads && obj.downloads.monthly) || 0,
                 types: typesFromKeywords(p.keywords),
-                video: null
+                video: null,
+                image: null
             };
         });
     }
@@ -1039,7 +1045,7 @@
             var card = createCard(pkg, flagStatus);
             cardMap[pkg.name] = card;
             grid.appendChild(card);
-            if (pkg.video) injectMedia(card, pkg);
+            if (pkg.video || pkg.image) injectMedia(card, pkg);
         });
         applyFilters();
         renderRecent();
@@ -1075,7 +1081,7 @@
                     var pkg = packages.find(function (p) { return p.name === name; });
                     if (!pkg) return;
                     if (!manifest) {
-                        manifests[name] = { video: null, types: pkg.types };
+                        manifests[name] = { video: null, image: null, types: pkg.types };
                         return;
                     }
 
@@ -1083,11 +1089,16 @@
                     var mTypes = typesFromManifest(pi);
                     if (mTypes.length) pkg.types = mTypes;
                     var video = videoFromManifest(pi);
+                    var image = imageFromManifest(pi);
                     if (video) {
                         pkg.video = video;
                         hasDemo = true;
                     }
-                    manifests[name] = { video: pkg.video, types: pkg.types };
+                    if (image) {
+                        pkg.image = image;
+                        hasDemo = true;
+                    }
+                    manifests[name] = { video: pkg.video, image: pkg.image, types: pkg.types };
 
                     var card = cardMap[name];
                     if (card) {
@@ -1103,7 +1114,7 @@
                                 badges.appendChild(fb);
                             }
                         }
-                        if (video) injectMedia(card, pkg);
+                        if (video || image) injectMedia(card, pkg);
                     }
                 });
                 nextBatch();
@@ -1167,6 +1178,10 @@
             if (m.types && m.types.length) pkg.types = m.types;
             if (m.video) {
                 pkg.video = m.video;
+                hasDemo = true;
+            }
+            if (m.image) {
+                pkg.image = m.image;
                 hasDemo = true;
             }
         });
