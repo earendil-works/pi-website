@@ -9,7 +9,7 @@ services:
             - ../html:/www:ro
             - ./data/logs:/logs
         labels:
-            caddy: buildwithpi.ai, buildwithpi.com, www.buildwithpi.ai, shittycodingagent.ai, www.shittycodingagent.ai
+            caddy: buildwithpi.ai, buildwithpi.com, www.buildwithpi.ai, shittycodingagent.ai, www.shittycodingagent.ai, pi.dev, www.pi.dev
             caddy.reverse_proxy: "{{upstreams 80}}"
         networks:
             - caddy-network
