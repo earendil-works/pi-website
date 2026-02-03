@@ -222,6 +222,51 @@ body {
     color: var(--text);
 }
 
+.footer-exe {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 1.05rem;
+}
+
+.footer-exe img {
+    width: 40px;
+    height: 40px;
+}
+
+.footer-exe:hover {
+    color: var(--text);
+}
+
+.footer-exe-note {
+    margin-top: 0.35rem;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.footer-exe-note a {
+    color: var(--text-dim);
+}
+
+.footer-exe-note a:hover {
+    color: var(--text);
+}
+
+.footer-exe-text {
+    text-align: center;
+}
+
+.footer-exe-heart {
+    line-height: 1;
+}
+
 /* Section screenshots */
 .section-screenshot,
 .doom-screenshot {
