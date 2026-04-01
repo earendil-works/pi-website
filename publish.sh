@@ -5,7 +5,7 @@ rm -rf html
 blargh --in src --out html
 
 host=slayer.marioslab.io
-host_dir=/home/badlogic/shittycodingagent.ai
+host_dir=/home/badlogic/pi.dev
 
 current_date=$(date "+%Y-%m-%d %H:%M:%S")
 commit_hash=$(git rev-parse HEAD)

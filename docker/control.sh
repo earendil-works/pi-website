@@ -2,7 +2,7 @@
 
 set -e
 
-project=shittycodingagent-ai
+project=pi-ai
 
 printHelp () {
     echo "Usage: control.sh <command>"
