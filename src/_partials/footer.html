@@ -3,7 +3,7 @@
             <img src="/earendil-logo.svg" alt="Earendil" />
         </a>
         <div class="footer-links">
-            <span>MIT License</span>
+            <span>MIT License &middot; Mario Zechner & contributors</span>
         </div>
         <div class="footer-domain">
             pi.dev domain graciously donated by
@@ -15,5 +15,26 @@
         </div>
     </footer>
 </div>
+
+<script>
+// Sticky navbar: show after scrolling past the hero
+(function() {
+    const nav = document.getElementById('stickyNav');
+    const hero = document.querySelector('.hero');
+    if (!nav || !hero) return;
+
+    function onScroll() {
+        const heroBottom = hero.getBoundingClientRect().bottom;
+        if (heroBottom < 0) {
+            nav.classList.add('visible');
+        } else {
+            nav.classList.remove('visible');
+        }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+})();
+</script>
 </body>
 </html>
