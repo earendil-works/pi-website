@@ -332,6 +332,8 @@ body {
     font-size: 0.75rem;
     color: var(--text-dim);
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     gap: 0.4rem;
 }
@@ -346,6 +348,12 @@ body {
 .footer-domain a:hover {
     color: var(--text);
     text-decoration: underline;
+}
+
+.footer-exe {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
 }
 
 .footer-exy {
