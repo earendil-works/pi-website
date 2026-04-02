@@ -279,27 +279,35 @@ body {
 }
 
 .site-footer {
-    margin: 4rem 0 2rem;
+    margin: 3rem 0 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 0.75rem;
 }
 
 .footer-earendil {
-    display: inline-block;
-    opacity: 0.5;
+    display: inline-flex;
+    align-items: center;
+    opacity: 0.7;
     transition: opacity 0.15s;
 }
 
 .footer-earendil:hover {
-    opacity: 0.8;
+    opacity: 1;
 }
 
 .footer-earendil img {
     display: block;
-    height: 80px;
+    height: 64px;
     width: auto;
+}
+
+.footer-divider {
+    border: 0;
+    border-top: 1px solid var(--terminal-border);
+    width: 120px;
+    margin: 0;
 }
 
 .footer-links {
@@ -313,6 +321,7 @@ body {
 
 .footer-links a:hover {
     color: var(--text);
+    text-decoration: underline;
 }
 
 .footer-sep {
@@ -336,6 +345,7 @@ body {
 
 .footer-domain a:hover {
     color: var(--text);
+    text-decoration: underline;
 }
 
 .footer-exy {
