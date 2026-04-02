@@ -236,21 +236,21 @@ body {
 .sticky-nav-inner {
     max-width: 720px;
     margin: 0 auto;
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .sticky-nav-logo img {
-    height: 28px;
-    width: 28px;
+    height: 36px;
+    width: 36px;
     display: block;
 }
 
 .sticky-nav-links {
     display: flex;
-    gap: 1rem;
+    gap: 1.25rem;
     align-items: center;
 }
 
