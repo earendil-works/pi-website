@@ -1,6 +1,6 @@
 <% meta() %>
 <% title = "Packages - " + title %>
-<% const repo = "https://github.com/earendil-works/pi/tree/main/packages/coding-agent"; %>
+<% const repo = "https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent"; %>
 <% description = "Browse extensions, skills, themes, and more for the pi coding agent" %>
 <%= render("./_partials/header.html", { title, description, url: url + "/packages" }) %>
 
@@ -104,7 +104,7 @@
     var CACHE_KEY = 'pi-pkg-cache';
     var CACHE_TTL = 15 * 60 * 1000;
     var BATCH_SIZE = 15;
-    var FLAG_API = 'https://api.github.com/repos/earendil-works/pi/issues?labels=package-flag&state=all&per_page=100';
+    var FLAG_API = 'https://api.github.com/repos/badlogic/pi-mono/issues?labels=package-flag&state=all&per_page=100';
     var FLAG_CACHE_KEY = 'pi-pkg-flags';
     var FLAG_CACHE_TTL = 10 * 60 * 1000;
 
@@ -363,7 +363,7 @@
         readmeBtn.innerHTML = SVG_README + ' readme';
         readmeBtn.addEventListener('click', function () { openReadmeModal(pkg); });
         links.appendChild(readmeBtn);
-        var reportUrl = 'https://github.com/earendil-works/pi/issues/new?labels=package-report&title='
+        var reportUrl = 'https://github.com/badlogic/pi-mono/issues/new?labels=package-report&title='
             + encodeURIComponent('Package Report: ' + pkg.name)
             + '&body=' + encodeURIComponent('Package: ' + pkg.name + '\nVersion: ' + pkg.version + '\n\nDescribe your concern:\n');
         var reportLink = document.createElement('a');

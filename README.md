@@ -1,6 +1,6 @@
 # pi.dev
 
-Website for [pi](https://github.com/earendil-works/pi), a terminal-based coding agent by [Earendil](https://earendil.com).
+Website for [pi](https://github.com/badlogic/pi-mono), a terminal-based coding agent by [Earendil](https://earendil.com).
 
 ## Prerequisites
 
