@@ -8,8 +8,9 @@
 <!-- Hero -->
 <div class="hero">
     <img src="/logo.svg" alt="pi" class="hero-logo">
-    <p class="hero-subtitle">
-        There are many coding agents, but this one is mine.
+    <p class="hero-subtitle" aria-label="There are many coding agents, but this one is mine.">
+        There are many coding agents, but this one
+        is <span class="hero-rotator" aria-hidden="true">mine</span>.
     </p>
 
     <div class="hero-links">
@@ -47,6 +48,31 @@
         controls: false,
         loop: true
     });
+
+    (function() {
+        const options = ["mine", "enterprise-ready", "Colin's", "yours", "ours", "shitty", "hard to google", "venture backed", "spiritually bankrupt"];
+        const subtitle = document.querySelector('.hero-subtitle');
+        const rotator = document.querySelector('.hero-rotator');
+        if (!subtitle || !rotator) return;
+
+        const intervalMs = 3200;
+        let index = 0;
+
+        function rotate() {
+            index = (index + 1) % options.length;
+            rotator.classList.add('is-fading');
+
+            rotator.addEventListener('transitionend', function swap() {
+                rotator.removeEventListener('transitionend', swap);
+                rotator.textContent = options[index];
+                subtitle.setAttribute('aria-label',
+                    `There are many coding agents, but this one is ${options[index]}.`);
+                rotator.classList.remove('is-fading');
+            });
+        }
+
+        setInterval(rotate, intervalMs);
+    })();
 </script>
 
 <!-- Pitch -->
@@ -54,7 +80,7 @@
     <div class="section-label">About</div>
     <h2 class="section-title">Why pi?</h2>
     <p>
-        Pi is a minimal terminal coding harness. Adapt pi to your workflows, not the other way around. Extend it with TypeScript <a href="<%=repo%>#extensions">extensions</a>, <a href="<%=repo%>#skills">skills</a>, <a href="<%=repo%>#prompt-templates">prompt templates</a>, and <a href="<%=repo%>#themes">themes</a>. Bundle them as <a href="<%=repo%>#pi-packages">pi packages</a> and share via npm or git.
+        Pi is a minimal terminal coding harness. Adapt pi to your workflows, not the other way around. Extend it with TypeScript <a href="<%=repo%>#extensions">extensions</a>, <a href="<%=repo%>#skills">skills</a>, <a href="<%=repo%>#prompt-templates">prompt templates</a>, and <a href="<%=repo%>#themes">themes</a>. Bundle them as <a href="/packages">pi packages</a> and share via npm or git.
     </p>
 
     <p>
@@ -164,7 +190,7 @@
     <img src="/doom-extension.png" alt="Doom running in pi" class="doom-screenshot">
 
     <p>
-        Don't want to build it? Ask pi to build it for you. Or install a <a href="<%=repo%>#pi-packages">package</a> that does it your way. See the <a href="<%=examples%>/extensions/">50+ examples</a>.
+        Don't want to build it? Ask pi to build it for you. Or install a <a href="/packages">package</a> that does it your way. See the <a href="<%=examples%>/extensions/">50+ examples</a>.
     </p>
 </div>
 
@@ -224,7 +250,7 @@
     <h2 class="section-title">What we didn't build</h2>
 
     <p>
-        Pi is aggressively extensible so it doesn't have to dictate your workflow. Features that other tools bake in can be built with <a href="<%=repo%>#extensions">extensions</a>, <a href="<%=repo%>#skills">skills</a>, or installed from third-party <a href="<%=repo%>#pi-packages">pi packages</a>. This keeps the core minimal while letting you shape pi to fit how you work.
+        Pi is aggressively extensible so it doesn't have to dictate your workflow. Features that other tools bake in can be built with <a href="<%=repo%>#extensions">extensions</a>, <a href="<%=repo%>#skills">skills</a>, or installed from third-party <a href="/packages">pi packages</a>. This keeps the core minimal while letting you shape pi to fit how you work.
     </p>
 
     <p>

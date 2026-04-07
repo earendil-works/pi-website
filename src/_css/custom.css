@@ -35,6 +35,25 @@ body {
     color: var(--text-dim);
     max-width: 400px;
     margin: 0 auto 1.5rem auto;
+    line-height: 1.6;
+}
+
+.hero-rotator {
+    display: inline-block;
+    white-space: nowrap;
+    color: var(--text);
+    font-weight: 500;
+    transition: opacity 300ms ease;
+}
+
+.hero-rotator.is-fading {
+    opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-rotator {
+        transition: none;
+    }
 }
 
 .hero-links {
@@ -394,6 +413,15 @@ body {
     color: var(--text-dim);
     font-size: 0.95rem;
     margin: 0;
+    max-width: 48rem;
+}
+
+.pkg-header p + p {
+    margin-top: 0.75rem;
+}
+
+.pkg-header code {
+    font-size: 0.9em;
 }
 
 .pkg-filters {
