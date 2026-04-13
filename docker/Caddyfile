@@ -1,4 +1,7 @@
 :80 {
+    @install path /install /install-counts /healthz
+    reverse_proxy @install install-counter:8787
+
     root * /www
     file_server
     try_files {path} {path}.html {path}/ /index.html

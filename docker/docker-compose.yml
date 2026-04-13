@@ -14,6 +14,21 @@ services:
         networks:
             - caddy-network
 
+    install-counter:
+        image: node:22-alpine
+        restart: always
+        working_dir: /app
+        command: ["node", "server/install-counter.mjs"]
+        environment:
+            PORT: "8787"
+            COUNTS_PATH: /data/install-counts.json
+            FLUSH_INTERVAL_MS: "30000"
+        volumes:
+            - ..:/app:ro
+            - ./data:/data
+        networks:
+            - caddy-network
+
 networks:
     caddy-network:
         external: true

@@ -18,6 +18,10 @@ Start the local dev server with live reload:
 ./dev.sh
 ```
 
+This starts:
+- `blargh` on `127.0.0.1:8081`
+- the local Node server on `127.0.0.1:8080`
+
 Open http://127.0.0.1:8080
 
 The site has two pages:
@@ -50,4 +54,8 @@ src/
 ./publish.sh
 ```
 
-Builds the site into `html/`, rsyncs to the server, and restarts the Caddy container.
+Builds the site into `html/`, rsyncs to the server, and restarts the Caddy and install counter containers.
+
+Install telemetry endpoints:
+- `/install?version=x.y.z` increments the in-memory counter
+- `/install-counts` returns the raw JSON stats
