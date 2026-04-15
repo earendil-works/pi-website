@@ -12,6 +12,8 @@
     }
 
     log {
-        output file /logs/access.log
+        output file /logs/access.log {
+            mode 644
+        }
     }
 }
