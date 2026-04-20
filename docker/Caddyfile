@@ -1,4 +1,9 @@
 :80 {
+    @notCanonical {
+        not host pi.dev
+    }
+    redir @notCanonical https://pi.dev{uri} permanent
+
     @install path /install /install-counts /healthz
     handle @install {
         reverse_proxy install-counter:8787
